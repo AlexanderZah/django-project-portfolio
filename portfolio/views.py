@@ -1,3 +1,10 @@
 from django.shortcuts import render
 
-# Create your views here.
+from .models import Project
+
+def index(request):
+    posts = Project.objects.all()
+    context = {
+        'posts':posts
+    }
+    return render(request, 'portfolio/index.html', context=context)
